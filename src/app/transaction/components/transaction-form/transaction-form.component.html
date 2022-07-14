@@ -1,0 +1,58 @@
+<div
+  *ngIf="isSubmitted"
+  class="block-ui"
+>
+  <div class="loader"></div>
+</div>
+<div class="p-10">
+  <form #transactionForm="ngForm">
+    <fieldset class="p-10">
+      <legend>Create New Transaction:</legend>
+      <div class="grid w-full">
+        <div class="p-10 w-full">
+          <label for="accountId">Account Id:</label><br />
+          <input
+            name="accountId"
+            id="accountId"
+            class="inputtext w-full"
+            type="text"
+            [(ngModel)]="accountId"
+            required
+            #accountIdCtrl="ngModel"
+          /><br />
+          <small class="error" *ngIf="accountIdCtrl.errors?.required">
+            <div class="error">Account id is required</div>
+          </small>
+        </div>
+      </div>
+      <div class="grid w-full">
+        <div class="p-10 w-full">
+          <label for="accountId">Amount:</label><br />
+          <input
+            name="amount"
+            id="amount"
+            class="inputtext w-full"
+            type="number"
+            [(ngModel)]="amount"
+            #amountCtrl="ngModel"
+            required
+          /><br />
+          <small class="error" *ngIf="amountCtrl.errors?.required">
+            <div class="error">Account id is required</div>
+          </small>
+        </div>
+      </div>
+      <div class="grid w-full">
+        <div class="p-10 w-full flex justify-content-center align-items-center">
+          <button
+            class="button button-outlined"
+            type="button"
+            (click)="addTransaction()"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

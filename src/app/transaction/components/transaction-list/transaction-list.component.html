@@ -1,0 +1,17 @@
+<div class="pt-10 h-full overflow-y">
+  <fieldset class="p-10">
+    <legend>Transaction History:</legend>
+
+    <ng-container *ngFor="let transaction of transactions; let i = index">
+      <div class="transaction-item">
+        <span
+          >Transfrred ${{ transaction.amount }} From account
+          {{ transaction.account_id }}</span
+        ><br />
+        <span *ngIf="transaction?.balance">
+          The current account balance ${{ transaction.balance }}
+        </span>
+      </div>
+    </ng-container>
+  </fieldset>
+</div>
